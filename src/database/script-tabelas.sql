@@ -16,3 +16,36 @@ CREATE TABLE usuario (
 select * from usuario;
 
 
+
+create table jogador(
+idjogador int primary key auto_increment,
+nomejogador varchar (45),
+img varchar (200)
+);
+insert into jogador values
+(null,"Gianis","../assets/imgs/GiannisVotacao.gif");
+insert into jogador values
+(null,"Luka","../assets/imgs/LukaDoncicVotacao.gif");
+insert into jogador values
+(null,"Morant","../assets/imgs/JaMorant-votacao.gif");
+
+select* from jogador;
+
+
+create table votacao(
+idvotacao int auto_increment,
+fkjogador int,
+foreign key (fkjogador) references jogador (idjogador),
+fkusuario int,
+foreign key(fkusuario) references usuario (id),
+primary key(idvotacao,fkjogador,fkusuario));
+
+drop table votacao;
+
+select * from jogador ;
+select * from jogador ;
+
+
+
+insert into votacao(fk) values
+(1,1)

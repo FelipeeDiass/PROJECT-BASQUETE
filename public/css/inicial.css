@@ -12,7 +12,7 @@ font-family: 'Poppins';
 
 }
 .inicio {
-    background-image: url(95-955352_basketball-gif.gif);
+    background-image: url(../assets/imgs/bg-home.gif);
     background-size: cover;
     color: aliceblue;
     height: 100vh;
@@ -21,10 +21,10 @@ font-family: 'Poppins';
     justify-content: space-around;
 }
 .img-logo{
-    transition: 2s;
+    transition: 1s;
 }
 .img-logo:hover{
-    transform: rotate(360deg);
+    transform: rotate(80deg);
 }
 
 .header {

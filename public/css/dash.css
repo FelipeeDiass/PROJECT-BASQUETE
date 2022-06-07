@@ -1,0 +1,76 @@
+* {
+  margin: 0;
+}
+
+.container-metrica {
+
+  
+  height: 100vh;
+  background-repeat: no-repeat;
+
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+
+
+.metrica-esquerda {
+  background-image: url(../assets/imgs/gianis-metrica.jpg);
+  width: 80%;
+  height: 60vh;
+  background-size: cover;
+
+  background-position: center;
+  border: 4px solid rgb(0, 0, 0);
+
+}
+
+.metrica-direita {
+  display: flex;
+  background-color: red;
+  display: flex;
+  width: 40%;
+  height: 40vh;
+  justify-content: space-around;
+  border-radius: 10px;
+  height: 60vh;
+  background-image: url(../assets/imgs/usa-logos.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+
+
+}
+
+.lado-direito form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border: 4px solid rgb(0, 0, 0);
+  color: aliceblue;
+}
+
+
+
+.botao {
+
+  color: aliceblue;
+  justify-content: space-around;
+  display: flex;
+}
+
+a :link{
+color: rgb(255, 255, 255);
+background-color: rgb(255, 0, 0);
+
+}
+
+
+a :hover{
+
+
+  background-color: black;
+  color: aliceblue;
+}

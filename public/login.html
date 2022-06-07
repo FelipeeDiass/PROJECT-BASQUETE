@@ -6,24 +6,34 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="logo.css">
+    <link rel="stylesheet" href="./css/logo.css">
 </head>
 
 <body>
+    <div class="header-login">
+       <img src="assets/imgs/nike-nike.jfif" alt="">
+       <img src="assets/imgs/jordan-jordan.jpg" alt="">
+       <img src="assets/imgs/puma-puma.png" alt="">
+       <img src="assets/imgs/new-new.png" alt="">
+       <img src="assets/imgs/estrela.jpg" alt="">
+     </div>
     <div class="container-login">
-        <div class="header-login">
+        
             <div class="login-meio">
-                <form action="">
+                <form class="form" action="">
 
-                    Nome<input cnomelogin>
+                    Email<input id="email_input">
                     <br>
                     <br>
-                    senha<input senhallogin>
+                    senha<input id="senha_input">
                     <br>
                     <div class="btn-box">
-                        <button onclick="loginlogin()">Login</button>
-                        <button onclick="Saie()">sair</button>
+                       <a style="text-decoration:none" <button onclick="entrar()">Login</button> </a>
+                       <a href="index.html"style="text-decoration:none"  <button onclick="Sair()">sair</button> </a>
                     </div>
+                </form>
+            </div>
+    </div>
 
 
 
@@ -39,9 +49,94 @@
 
 
             </div>
-        </div>
+        
     </div>
 
 </body>
 
 </html>
+<script>
+
+
+    function entrar() {
+        
+
+        var emailVar = email_input.value;
+        var senhaVar = senha_input.value;
+
+        // TODO: VERIFICAR AS VALIDAÇÕES QUE ELES ESTÃO APRENDENDO EM ALGORITMOS 
+        if (emailVar == "" || senhaVar == "") {
+            // cardErro.style.display = "block"
+            // mensagem_erro.innerHTML = "Preencha todos os campos para prosseguir!";
+            finalizarAguardar();
+            return false;
+        }
+        else {
+            setInterval(sumirMensagem, 5000)
+        }
+
+        if (emailVar.indexOf("@") == -1 || emailVar.indexOf(".com") == -1) {
+            alert('email invalido')
+            // cardErro.style.display = "block"
+            // mensagem_erro.innerHTML = "Ops, e-mail inválido! Verifique e tente novamente.";
+            finalizarAguardar();
+            return false;
+        }
+        else {
+            setInterval(sumirMensagem, 5000)
+        }
+
+        console.log("FORM LOGIN: ", emailVar);
+        console.log("FORM SENHA: ", senhaVar);
+
+        fetch("/usuarios/autenticar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                emailServer: emailVar,
+                senhaServer: senhaVar
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
+
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+
+                    sessionStorage.EMAIL_USUARIO = json.email;
+                    sessionStorage.NOME_USUARIO = json.nome;
+                    sessionStorage.ID_USUARIO = json.id;
+
+                    setTimeout(function () {
+                        window.location = "./dashboard/votacao.html";
+                    }, 1000); // apenas para exibir o loading
+
+                });
+
+            } else {
+
+                console.log("Houve um erro ao tentar realizar o login!");
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+                    finalizarAguardar(texto);
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
+        return false;
+    }
+
+    function sumirMensagem() {
+        cardErro.style.display = "none"
+    }
+
+</script>

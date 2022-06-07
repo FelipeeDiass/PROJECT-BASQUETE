@@ -3,40 +3,65 @@
     margin: 0;
 }
 
+body {
+    background-image: url(../assets/imgs/black.gif);
+    display: flex;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100%;
+   background-repeat: no-repeat;
+   background-size: cover;
+   background-color: rgb(255, 255, 255);
+    
+}
+
 .container-login{
 display: flex;
-height: 100vh;
+height: 50vh;
 background-repeat: no-repeat;
-justify-content: space-around;
-    background-image: url(thumb-1920-278449.jpg);
+justify-content: center;
 align-items: center;
-    background-size: cover;
-    color: aliceblue;
-}
-
-
-.loginmeio{
-
-display: flex;
-
-justify-content: space-around;
-
+width: 50%; 
+background-size: cover;
+color: aliceblue;
+background-image: url(../assets/imgs/bg-login.jpg);
 background-position: center;
-color: aliceblue;
-background-image: url();
-margin-left: 50px;
-background-image: url(/);
+border-radius: 30px;
+background-color: rgb(255, 255, 255);
 }
 
 
 
-.loginmeio form{
-color: aliceblue;
 
+
+.header-login img{
+
+height: 70px;
+margin-top: 70px;
+
+}
+.header-login {
+background-color: rgb(255, 255, 255);
+position: fixed;
+margin-bottom: 770px;
+height: 140px;
+width: 100%;
+justify-content: space-around;
 display: flex;
 
-justify-content: space-around;
+}
 
+
+
+
+
+.container-login .form {
+color: black;
+color: white;
+border-radius: 20px;
 
 }
 
@@ -45,9 +70,16 @@ justify-content: space-around;
 display: flex;
 justify-content: space-around;
 flex-direction: row;
+margin-left: 21px;
 
 
     }
 
 
-    
+    .form input{
+        border-radius: 10px;
+    }
+
+    .form button{
+        border-radius: 10px;
+    }
