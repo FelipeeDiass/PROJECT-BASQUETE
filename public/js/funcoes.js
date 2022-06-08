@@ -101,3 +101,20 @@ function votarMvp(idUsuario,idjogador) {
     });
     return false;
 }
+function exibirmetricas(){
+
+    fetch('/usuarios/listarmaisvotado').then(function (resposta) {
+        if (resposta.ok) {
+            resposta.json().then(function (resposta) {
+
+                console.log('Dados:', JSON.stringify(resposta))
+                exibirmaisvotado.innerHTML = resposta[0].nomejogador
+                numeromaisvotado.innerHTML = resposta[0].votos
+            })
+        }
+
+    })
+
+
+
+}

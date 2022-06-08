@@ -23,6 +23,38 @@ function listar(req, res) {
             }
         );
 }
+function listarmenosvotado(req, res) {
+    usuarioModel.listarmenosvotado()
+        .then(function (resultado) {
+            if (resultado.length > 0) {
+                res.status(200).json(resultado);
+            } else {
+                res.status(204).send("Nenhum resultado encontrado!")
+            }
+        }).catch(
+            function (erro) {
+                console.log(erro);
+                console.log("Houve um erro ao realizar a consulta! Erro: ", erro.sqlMessage);
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
+function listarmaisvotado(req, res) {
+    usuarioModel.listarmaisvotado()
+        .then(function (resultado) {
+            if (resultado.length > 0) {
+                res.status(200).json(resultado);
+            } else {
+                res.status(204).send("Nenhum resultado encontrado!")
+            }
+        }).catch(
+            function (erro) {
+                console.log(erro);
+                console.log("Houve um erro ao realizar a consulta! Erro: ", erro.sqlMessage);
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
 function listarMvp(req, res) {
     usuarioModel.listarMvp()
         .then(function (resultado) {
@@ -111,7 +143,7 @@ function cadastrar(req, res) {
 }
 function votarMvp(req, res) {
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
-    var idUsuario = req.body.idusuarioServer;
+    var idUsuario = req.body.idUsuarioServer;
     var idjogador = req.body.idjogadorServer;
 
     // Faça as validações dos valores
@@ -120,7 +152,7 @@ function votarMvp(req, res) {
     } else if (idjogador == undefined) {
         res.status(400).send("Sua senha está undefined!");
     } else {
-        
+
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
         usuarioModel.votarMvp(idUsuario, idjogador)
             .then(
@@ -140,6 +172,7 @@ function votarMvp(req, res) {
     }
 }
 
+
 module.exports = {
     entrar,
     cadastrar,
@@ -147,4 +180,6 @@ module.exports = {
     testar,
     listarMvp,
     votarMvp,
+    listarmaisvotado,
+    listarmenosvotado,
 }

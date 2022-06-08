@@ -40,12 +40,22 @@ fkusuario int,
 foreign key(fkusuario) references usuario (id),
 primary key(idvotacao,fkjogador,fkusuario));
 
-drop table votacao;
+
 
 select * from jogador ;
 select * from jogador ;
 
 
 
-insert into votacao(fk) values
-(1,1)
+insert into votacao(fkusuario,fkjogador) values
+(1,1);
+
+
+
+select * from votacao;
+
+select nomejogador,count(fkjogador)from votacao join jogador on idjogador=fkjogador group by nomejogador limit 1; 
+select nomejogador,count(fkjogador)from votacao join jogador on idjogador=fkjogador group by nomejogador ; 
+
+
+

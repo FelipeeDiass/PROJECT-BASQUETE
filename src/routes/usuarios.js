@@ -10,6 +10,12 @@ router.get("/", function (req, res) {
 router.get("/listar", function (req, res) {
     usuarioController.listar(req, res);
 });
+router.get("/listarmaisvotado", function (req, res) {
+    usuarioController.listarmaisvotado(req, res);
+});
+router.get("/listarmenosvotado", function (req, res) {
+    usuarioController.listarmenosvotado(req, res);
+});
 router.get("/listarMvp", function (req, res) {
     usuarioController.listarMvp(req, res);
 });

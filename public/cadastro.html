@@ -18,7 +18,7 @@
                 <br>
                 Nome<br><input type="text" id="nomeinput">
 
-                E-mail: <input type="text"  id="emailinput">
+                E-mail: <input type="text" id="emailinput">
 
                 senha:
                 <input type="password" id="senhainput">
@@ -28,7 +28,9 @@
 
 
                 <div class="botao">
-                    <a href="login.html"style="text-decoration:none"  <button onclick="cadastrar()"><h3>Criar conta</h3></button> </a>
+                    <a onclick="cadastrar()" style="text-decoration:none">
+                        <h3>Criar conta</h3>
+                    </a>
                 </div>
         </div>
 
@@ -61,7 +63,7 @@
 </html>
 <script>
     function cadastrar() {
-        
+
 
         //Recupere o valor da nova input pelo nome do id
         // Agora vá para o método fetch logo abaixo
@@ -71,14 +73,14 @@
         var confirmacaoSenhaVar = confirmarsenhainput.value;
 
         if (nomeVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "") {
-            cardErro.style.display = "block"
-            mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+            // cardErro.style.display = "block"
+            // mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
 
-            finalizarAguardar();
+            // finalizarAguardar();
             return false;
         }
         else {
-            setInterval(sumirMensagem, 5000)
+            // setInterval(sumirMensagem, 5000)
         }
 
         // Enviando o valor da nova input
@@ -99,29 +101,29 @@
             console.log("resposta: ", resposta);
 
             if (resposta.ok) {
-                cardErro.style.display = "block";
+                // cardErro.style.display = "block";
 
-                mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+                // mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
 
                 setTimeout(() => {
                     window.location = "login.html";
                 }, "2000")
 
-                limparFormulario();
-                finalizarAguardar();
+                // limparFormulario();
+                // finalizarAguardar();
             } else {
                 throw ("Houve um erro ao tentar realizar o cadastro!");
             }
         }).catch(function (resposta) {
             console.log(`#ERRO: ${resposta}`);
-            finalizarAguardar();
+            // finalizarAguardar();
         });
 
         return false;
     }
 
-    function sumirMensagem() {
-        cardErro.style.display = "none"
-    }
+    // function sumirMensagem() {
+    //     cardErro.style.display = "none"
+    // }
 
 </script>
